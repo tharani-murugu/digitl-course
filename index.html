@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online course</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <h1>Digital Marketing</h1>
+  </div>
+  <div class="container">
+    <div class="c-container">
+        <h2>Social media marketing</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates distinctio assumenda rem debitis, nam voluptatum quas cupiditate a, adipisci accusamus aperiam, fugiat error aliquam minus. Rerum temporibus nihil vero repudiandae?</p>
+        <button onclick="del(event)">delete</button>
+    </div>
+  </div>
+ 
+<button class=add-btn id="addpopup-bitten">+</button>
+<div class="popo"></div>
+<div class="p-box">
+    <h2>Add Book</h2>
+    <form>
+        <input type="text" placeholder="Course Name" id="course">
+        <textarea placeholder="Short Description" id="short"></textarea>
+        <button id="add">ADD</button>
+        <button id="cancel">CANCEL</button>
+    </form>
+</div>
+
+<script>
+    var a=document.querySelector(".popo")
+    var pbox=document.querySelector(".p-box")
+    var add1= document.getElementById("addpopup-bitten")
+   add1.addEventListener("click",function(){
+    a.style.display="block"
+    pbox.style.display="block"
+   })
+
+   var cal=document.getElementById("cancel")
+   cal.addEventListener("click",function(event){
+    event.preventDefault()
+     a.style.display="none"
+    pbox.style.display="none"
+   })
+
+ var container=document.querySelector(".container")
+ var add=document.getElementById("add")
+ var course=document.getElementById("course")
+ var short=document.getElementById("short")
+
+ add.addEventListener("click",function(event){
+  event.preventDefault()
+  var div=document.createElement("div")
+  div.setAttribute("class","c-container")
+  div.innerHTML=`<h2>${course.value}</h2>
+        <p>${short.value}</p>
+        <button onclick="del(event)">delete</button>`
+  container.append(div)
+   a.style.display="none"
+    pbox.style.display="none"
+ })
+ function del(event){
+  event.target.parentElement.remove()
+ }
+
+</script>
+</body>
+</html>
